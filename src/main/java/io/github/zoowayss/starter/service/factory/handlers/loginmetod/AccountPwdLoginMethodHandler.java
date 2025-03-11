@@ -18,7 +18,7 @@ public class AccountPwdLoginMethodHandler extends AbstractLoginMethodHandler {
 
     @Override
     protected UserAddr getCurrentUser(LoginReq loginReq) {
-        return userService.getByEmail(loginReq.getAccount());
+        return userService.getByName(loginReq.getAccount());
     }
 
 
@@ -26,8 +26,8 @@ public class AccountPwdLoginMethodHandler extends AbstractLoginMethodHandler {
     @Override
     protected long registerNewUser(LoginReq loginReq) {
         UserAddr savedUser = new UserAddr();
-        savedUser.setEmail(loginReq.getAccount());
-        savedUser.setPassword(loginReq.getPassword());
+        savedUser.setAccount(loginReq.getAccount());
+        savedUser.setPassword(passwordEncoder.encode(loginReq.getPassword()));
         return userService.registerNewUser(savedUser);
     }
 

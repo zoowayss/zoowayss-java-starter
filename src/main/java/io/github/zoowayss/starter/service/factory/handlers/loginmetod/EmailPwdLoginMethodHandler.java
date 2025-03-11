@@ -40,7 +40,7 @@ public class EmailPwdLoginMethodHandler extends AbstractLoginMethodHandler {
     protected long registerNewUser(LoginReq loginReq) {
         UserAddr savedUser = new UserAddr();
         savedUser.setEmail(loginReq.getAccount());
-        savedUser.setPassword(loginReq.getPassword());
+        savedUser.setPassword(passwordEncoder.encode(loginReq.getPassword()));
         return userService.registerNewUser(savedUser);
     }
 

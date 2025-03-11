@@ -17,7 +17,7 @@ public interface UserService {
 
     long registerNewUser(UserAddr savedUser);
 
-    boolean matchPassword(String source, String encrypt);
-
     void deleteAccount(Long uid);
+
+    UserAddr getByName(String account);
 }

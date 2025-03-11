@@ -27,4 +27,8 @@ public class TokenUser {
     private String ip;
 
     private String email;
+
+    private String account;
+
+    private String nickname;
 }

@@ -15,8 +15,6 @@ import java.util.*;
 
 public class DefaultUserServiceImpl implements UserService, UserInfoService {
 
-    public static final TokenUser DEFAULT_USER_INFO = new TokenUser(1L, "default_did", "1.1.1.1", "test@email.com");
-
     private static final Map<Long, UserAddr> datasource = new HashMap<>();
 
     @Override
@@ -45,13 +43,13 @@ public class DefaultUserServiceImpl implements UserService, UserInfoService {
     }
 
     @Override
-    public boolean matchPassword(String source, String encrypt) {
-        return true;
+    public void deleteAccount(Long uid) {
+
     }
 
     @Override
-    public void deleteAccount(Long uid) {
-
+    public UserAddr getByName(String account) {
+        return getByEmail(account);
     }
 
     @Override

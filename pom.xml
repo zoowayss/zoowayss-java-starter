@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.zoowayss</groupId>
-    <artifactId>zoowayss-spring-boot-starter</artifactId>
-    <version>1.0.2</version>
+    <artifactId>spring-boot-starter-zoowayss</artifactId>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
 
-    <name>zoowayss-spring-boot-starter</name>
+    <name>spring-boot-starter-zoowayss</name>
     <description>A Spring Boot Starter Template</description>
     <url>https://github.com/zoowayss/zoowayss-java-starter</url>
 
@@ -80,6 +80,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <!-- Spring Security Crypto -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-crypto</artifactId>
         </dependency>
     </dependencies>
 

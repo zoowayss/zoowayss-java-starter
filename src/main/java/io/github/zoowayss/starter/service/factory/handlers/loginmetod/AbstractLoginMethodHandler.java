@@ -12,6 +12,7 @@ import io.github.zoowayss.starter.utils.ServletUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -37,6 +38,8 @@ public abstract class AbstractLoginMethodHandler implements LoginMethodHandler {
 
     @Resource
     private List<UserRegisterPostProcessor> userRegisterPostProcessors;
+
+    protected final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Transactional
     @Override
@@ -81,6 +84,6 @@ public abstract class AbstractLoginMethodHandler implements LoginMethodHandler {
     }
 
     protected boolean matchPassword(LoginReq loginReq, UserAddr currentUser) {
-        return userService.matchPassword(loginReq.getPassword(), currentUser.getPassword());
+        return passwordEncoder.matches(loginReq.getPassword(), currentUser.getPassword());
     }
 }
